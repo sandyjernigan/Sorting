@@ -22,7 +22,10 @@ def selection_sort( arr ):
 def bubble_sort( arr ):
 
     # Loop through your array
-    for i in range(0, len(arr)-1):
+    for i in range(len(arr)):
+
+        # Boolean to test if swap was required 
+        swap = False
 
         # Compare each element to its neighbor
         for j in range(0, len(arr)-1-i):
@@ -30,8 +33,12 @@ def bubble_sort( arr ):
             # If elements in wrong position (relative to each other, swap them)
             if arr[j] > arr[j+1]:
                 arr[j], arr[j+1] = arr[j+1], arr[j]
+                # swap was required = True
+                swap = True
 
-            # If no swaps performed, stop. Else, go back to the element at index 0 and repeat step 1.
+        # If no swaps performed, stop. Else, go back to the element at index 0 and repeat step 1.
+        if swap == False:
+            break
 
     return arr
 
